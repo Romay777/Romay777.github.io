@@ -30,7 +30,7 @@
       </p>
     </div>
 
-    <!-- Добавить после блока intro-text -->
+    <!-- Блок времени сколько встречаемся -->
     <div class="counter-container">
       <div class="counter-box">
         <div class="counter-section">
@@ -214,6 +214,23 @@
         setTimeout(() => {
           phraseElement.classList.remove('show');
         }, 3000);
+      });
+    </script>
+    <script>
+      // Наблюдатель за появлением элементов
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      // Находим все события и добавляем их в наблюдатель
+      document.querySelectorAll('.event').forEach((event) => {
+        observer.observe(event);
       });
     </script>
   </body>
