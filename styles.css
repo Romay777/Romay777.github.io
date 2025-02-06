@@ -307,6 +307,17 @@ body {
 .event img {
   max-width: 100%;
   min-width: 200px;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.event img:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .borderrad {
