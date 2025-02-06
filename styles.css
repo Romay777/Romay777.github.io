@@ -278,7 +278,7 @@ body {
 .event::before {
   content: "";
   position: absolute;
-  left: -26px;
+  left: -25px;
   top: 1px;
   width: 30px;
   height: 30px;
