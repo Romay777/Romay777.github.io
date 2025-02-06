@@ -83,16 +83,31 @@
       createHearts();
 
       // Создание событий
+      // Эффект полароида
+      function createPolaroid(imgUrl, caption) {
+        return `
+          <div class="polaroid">
+            <img src="${imgUrl}" alt="${caption}" />
+            <p class="polaroid-caption montserrat-alternates-medium">${caption}</p>
+          </div>
+        `;
+      }
+
       function addEvent(date, title, description, imgUrl) {
         const timeline = document.getElementById("timeline");
         const eventEl = document.createElement("div");
         eventEl.classList.add("event");
+
+        // Создаем полароид с изображением
+        const polaroidHtml = createPolaroid(imgUrl, title);
+
         eventEl.innerHTML = `
-        <div class="date montserrat-alternates-bold">${date}</div>
-        <div class="title montserrat-alternates-bold">${title}</div>
-        <div class="description montserrat-alternates-medium">${description}</div>
-        <img class="borderrad" width="300" src="${imgUrl}" alt="${title}"/>
-      `;
+          <div class="date montserrat-alternates-bold">${date}</div>
+          <div class="title montserrat-alternates-bold">${title}</div>
+          <div class="description montserrat-alternates-medium">${description}</div>
+          ${polaroidHtml}
+        `;
+
         timeline.appendChild(eventEl);
       }
       addEvent(
