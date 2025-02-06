@@ -54,7 +54,7 @@ body {
   display: inline-block;
   font-size: 80px;
   color: red;
-  animation: heartbeat 1s ease-in-out infinite;
+  animation: heartbeat 1.8s ease-in-out infinite;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -196,7 +196,7 @@ body {
 
 .heart-mini {
   font-size: 14px;
-  animation: heartbeat 1.5s ease-in-out infinite;
+  animation: heartbeat 1.2s ease-in-out infinite;
 }
 
 @keyframes glow {
@@ -211,7 +211,7 @@ body {
 .special-font-meow {
   font-family: "Meow Script", cursive;
   font-size: 48px;
-  color: #e74c3c;
+  color: #ff6b6b;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -246,7 +246,7 @@ body {
 
 /* Стили для временной линии */
 .timeline {
-  border-left: 3px solid #e74c3c;
+  border-left: 3px solid #ff6b6b;
   padding-left: 20px;
   position: relative;
 }
@@ -258,7 +258,7 @@ body {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: #e74c3c;
+  background: #ff6b6b;
 }
 
 .event {
@@ -267,6 +267,7 @@ body {
   opacity: 0;
   transform: translateX(-20px);
   transition: all 0.5s ease-out;
+
 }
 
 .event.visible {
@@ -277,11 +278,11 @@ body {
 .event::before {
   content: "";
   position: absolute;
-  left: -26px;
-  top: 2px;
+  left: -25px;
+  top: 1px;
   width: 30px;
   height: 30px;
-  background-color: #e74c3c;
+  background-color: #ff6b6b;
   scale: 0.9;
   clip-path: path(
           "M15,1.5 C13.2,1.5 11.5,2.3 10,4.5 C8.5,2.3 6.8,1.5 5,1.5 C2.2,1.5 0,3.7 0,6.5 C0,11 10,18.5 10,18.5 C10,18.5 20,11 20,6.5 C20,3.7 17.8,1.5 15,1.5 Z"
@@ -301,14 +302,68 @@ body {
 }
 
 .event .description {
+  margin-top: 25px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .event img {
-  max-width: 100%;
-  min-width: 200px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
+/* Стиль полароида */
+.polaroid {
+  background: white;
+  padding: 15px 15px 20px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 15px 0;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease;
+  width: 100%;
+  min-width: 200px;
+  box-sizing: border-box;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transform: none !important;
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.event:nth-child(odd) .polaroid {
+  transform: rotate(-2deg);
+}
+
+.event:nth-child(even) .polaroid {
+  transform: rotate(2deg);
+}
+
+.event:nth-child(odd) .polaroid:hover,
+.event:nth-child(even) .polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* Края картинок */
 .borderrad {
   border-radius: 10px;
   border: 3px solid;
