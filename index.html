@@ -1,99 +1,100 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Временная линия наших отношений</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Montserrat+Alternates:wght@400;500;600;700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Montserrat+Alternates:wght@400;500;600;700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
     />
     <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>"
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>"
     />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="background-hearts" id="backgroundHearts"></div>
-    <div class="heart-container">
-      <div class="heart">❤️</div>
-    </div>
-    <div class="intro-text">
-      <h1 class="sour-gummy-font">wqdsi + romay</h1>
-      <img class="borderrad" src="pics/start.jpg" width="300" height="auto" />
-      <p class="special-font-meow">Since 16.06.2024<br>&<br>Forever</p>
-      <p class="montserrat-alternates-medium">
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div class="background-hearts" id="backgroundHearts"></div>
+<div class="heart-container">
+    <div class="heart">❤️</div>
+</div>
+<div class="intro-text">
+    <h1 class="sour-gummy-font">wqdsi + romay</h1>
+    <img class="borderrad" src="pics/start.jpg" width="300" height="auto"/>
+    <p class="special-font-meow">Since 16.06.2024<br>&<br>Forever</p>
+    <p class="montserrat-alternates-medium">
         История, которую мы пишем вместе уже
-      </p>
-    </div>
+    </p>
+</div>
 
-    <!-- Блок времени сколько встречаемся -->
-    <div class="counter-container">
-      <div class="counter-box">
+<!-- Блок времени сколько встречаемся -->
+<div class="counter-container">
+    <div class="counter-box">
         <div class="counter-section">
-          <div class="counter-number montserrat-alternates-bold">7</div>
-          <div class="counter-label montserrat-alternates-medium">месяцев</div>
+            <div class="counter-number montserrat-alternates-bold">7</div>
+            <div class="counter-label montserrat-alternates-medium">месяцев</div>
         </div>
         <div class="counter-divider">и</div>
         <div class="counter-section">
-          <div class="counter-number montserrat-alternates-bold">29</div>
-          <div class="counter-label montserrat-alternates-medium">дней</div>
+            <div class="counter-number montserrat-alternates-bold">29</div>
+            <div class="counter-label montserrat-alternates-medium">дней</div>
         </div>
-      </div>
-      <div class="counter-total montserrat-alternates-medium">
+    </div>
+    <div class="counter-total montserrat-alternates-medium">
         <span class="heart-mini">❤️</span>
         244 дня
         <span class="heart-mini">❤️</span>
-      </div>
     </div>
+</div>
 
-    <div class="container">
-      <!-- Временная линия -->
-      <div class="timeline" id="timeline">
+<div class="container">
+    <!-- Временная линия -->
+    <div class="timeline" id="timeline">
         <!-- События -->
-      </div>
-      <div class="intro-text">
-        <p class="special-font-meow montserrat-alternates-medium">Бесконечно люблю тебя, моя принцесса
-      </div>
     </div>
+    <div class="intro-text">
+        <p class="special-font-meow montserrat-alternates-medium">Бесконечно люблю тебя, моя принцесса
+    </div>
+</div>
 
-    <!-- Скрипт для примера динамического добавления события (опционально) -->
-    <script>
-      // Генерация фоновых сердечек
-      function createHearts() {
+<!-- Скрипт для примера динамического добавления события (опционально) -->
+<script>
+    // Генерация фоновых сердечек
+    function createHearts() {
         const container = document.getElementById('backgroundHearts');
         const heartCount = 25;
 
         for (let i = 0; i < heartCount; i++) {
-          const heart = document.createElement('div');
-          heart.className = 'bg-heart';
-          heart.innerHTML = '❤️';
+            const heart = document.createElement('div');
+            heart.className = 'bg-heart';
+            heart.innerHTML = '❤️';
 
-          heart.style.left = Math.random() * 100 + '%';
-          heart.style.top = Math.random() * 100 + '%';
-          heart.style.fontSize = (10 + Math.random() * 20) + 'px';
-          heart.style.animationDelay = Math.random() * 10 + 's';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.fontSize = (10 + Math.random() * 20) + 'px';
+            heart.style.animationDelay = Math.random() * 10 + 's';
 
-          container.appendChild(heart);
+            container.appendChild(heart);
         }
-      }
-      createHearts();
+    }
 
-      // Создание событий
-      // Эффект полароида
-      function createPolaroid(imgUrl, caption) {
+    createHearts();
+
+    // Создание событий
+    // Эффект полароида
+    function createPolaroid(imgUrl, caption) {
         return `
           <div class="polaroid">
             <img src="${imgUrl}" alt="${caption}" />
             <p class="polaroid-caption montserrat-alternates-semibold">${caption}</p>
           </div>
         `;
-      }
+    }
 
-      function addEvent(date, title, description, imgUrl) {
+    function addEvent(date, title, description, imgUrl) {
         const timeline = document.getElementById("timeline");
         const eventEl = document.createElement("div");
         eventEl.classList.add("event");
@@ -108,90 +109,97 @@
         `;
 
         timeline.appendChild(eventEl);
-      }
-      addEvent(
+    }
+
+    addEvent(
         "01.06.2024",
         "Всё началось с...",
-        "Самого необыкновенного знакомства",
+        "Самого необыкновенного способа знакомства",
+        "pics/vk.png"
+    );
+    addEvent(
+        "01.06.2024",
+        "И продолжилось ещё интереснее!",
+        "Это было очень интересно",
         "pics/1.png"
-      );
-      addEvent(
-              "02.06.2024",
-              "Научила ставить лапу",
-              "И тут началось...",
-              "pics/13.png"
-      );
-      addEvent(
+    );
+    addEvent(
+        "02.06.2024",
+        "Научила ставить лапу",
+        "И тут началось...",
+        "pics/13.png"
+    );
+    addEvent(
         "04.06.2024",
         "Первая встреча",
         "Тогда не обошлось без происшествий, хаха)",
         "pics/2.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "11.06.2024",
         "Ты поделилась своими результатами ЕГЭ",
         "Очень хорошо поболтали!",
         "pics/3.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "12.06.2024",
         "Наш любимый ТикТок",
         "Кто-то полный газ 💨",
         "pics/4.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "12.06.2024",
         "Добавила в свой телеграм канальчик",
         "Любимый пост ✅",
         "pics/5.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "16.06.2024 14:30",
         "Сделали наши балдежные печеньки",
         "И того самого человечка 🍪",
         "pics/6.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "16.06.2024 23:00",
         "Первый поцелуй на той самой скамейке",
         "Самое незабываемое событие этого лета",
         "pics/7.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "20.06.2024",
         "Первое «люблю»",
         "И далеко не последнее)",
         "pics/8.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "20.06.2024",
         "Полина в шоке",
         "Она очень догадливая",
         "pics/9.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "20.06.2024",
         "Раскрыла творческую натуру",
         "Бедный глазик(",
         "pics/10.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "22.06.2024",
         "Наш первый тестик",
         "Хахаха, почему такая тема...",
         "pics/11.png"
-      );
-      addEvent(
+    );
+    addEvent(
         "23.06.2024",
         "Первый закреп",
         "Без комментариев))",
         "pics/12.png"
-      );
+    );
 
-    </script>
-    <script>
-      // Массив фраз о любви
-      const lovePhrases = [
+</script>
+<script>
+    // Массив фраз о любви
+    const lovePhrases = [
         "Ты - мое самое большое счастье ❤️",
         "Люблю тебя больше всего на свете 💖",
         "Ты делаешь мой мир прекрасней ✨",
@@ -202,17 +210,17 @@
         "Бесконечно счастлив быть с тобой 💑",
         "Ты - любовь всей моей жизни 💕",
         "Каждый миг с тобой бесценен ⭐"
-      ];
+    ];
 
-      // Найдем элемент сердца
-      const heart = document.querySelector('.heart');
-      // Создадим элемент для отображения фразы
-      const phraseElement = document.createElement('div');
-      phraseElement.classList.add('love-phrase');
-      document.querySelector('.heart-container').appendChild(phraseElement);
+    // Найдем элемент сердца
+    const heart = document.querySelector('.heart');
+    // Создадим элемент для отображения фразы
+    const phraseElement = document.createElement('div');
+    phraseElement.classList.add('love-phrase');
+    document.querySelector('.heart-container').appendChild(phraseElement);
 
-      // Добавим обработчик клика
-      heart.addEventListener('click', () => {
+    // Добавим обработчик клика
+    heart.addEventListener('click', () => {
         // Выбираем случайную фразу
         const randomPhrase = lovePhrases[Math.floor(Math.random() * lovePhrases.length)];
 
@@ -226,26 +234,26 @@
 
         // Удаляем класс через 3 секунды
         setTimeout(() => {
-          phraseElement.classList.remove('show');
+            phraseElement.classList.remove('show');
         }, 3000);
-      });
-    </script>
-    <script>
-      // Наблюдатель за появлением элементов
-      const observer = new IntersectionObserver((entries) => {
+    });
+</script>
+<script>
+    // Наблюдатель за появлением элементов
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
-      }, {
+    }, {
         threshold: 0.3
-      });
+    });
 
-      // Находим все события и добавляем их в наблюдатель
-      document.querySelectorAll('.event').forEach((event) => {
+    // Находим все события и добавляем их в наблюдатель
+    document.querySelectorAll('.event').forEach((event) => {
         observer.observe(event);
-      });
-    </script>
-  </body>
+    });
+</script>
+</body>
 </html>
