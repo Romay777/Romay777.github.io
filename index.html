@@ -216,5 +216,22 @@
         }, 3000);
       });
     </script>
+    <script>
+      // Наблюдатель за появлением элементов
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      // Находим все события и добавляем их в наблюдатель
+      document.querySelectorAll('.event').forEach((event) => {
+        observer.observe(event);
+      });
+    </script>
   </body>
 </html>
