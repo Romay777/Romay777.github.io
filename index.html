@@ -23,7 +23,7 @@
 </div>
 <div class="intro-text">
     <h1 class="sour-gummy-font">wqdsi + romay</h1>
-    <img class="borderrad" src="pics/start.jpg" width="300" height="auto"/>
+    <img class="borderrad" src="pics/start.jpg" width="300" height="auto" alt="start"/>
     <p class="special-font-meow">Since 16.06.2024<br>&<br>Forever</p>
     <p class="montserrat-alternates-medium">
         История, которую мы пишем вместе уже
@@ -55,6 +55,9 @@
     <div class="timeline" id="timeline">
         <!-- События -->
     </div>
+<!--    добавить каруслеь-->
+
+
     <div class="intro-text">
         <p class="special-font-meow montserrat-alternates-medium">Бесконечно люблю тебя, моя принцесса
     </div>
@@ -222,10 +225,8 @@
     // Добавим обработчик клика
     heart.addEventListener('click', () => {
         // Выбираем случайную фразу
-        const randomPhrase = lovePhrases[Math.floor(Math.random() * lovePhrases.length)];
-
         // Обновляем текст
-        phraseElement.textContent = randomPhrase;
+        phraseElement.textContent = lovePhrases[Math.floor(Math.random() * lovePhrases.length)];
 
         // Добавляем класс для анимации
         phraseElement.classList.remove('show');
@@ -255,5 +256,6 @@
         observer.observe(event);
     });
 </script>
+
 </body>
 </html>

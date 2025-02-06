@@ -57,6 +57,7 @@ body {
 .heart {
     display: inline-block;
     font-size: 80px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     color: red;
     animation: heartbeat 1.8s ease-in-out infinite;
     cursor: pointer;
@@ -130,7 +131,6 @@ body {
     }
 }
 
-/* Добавить в styles.css */
 .counter-container {
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(231, 76, 60, 0.2));
     border-radius: 15px;
@@ -345,6 +345,7 @@ body {
     margin: 0;
     transform: none !important;
     object-fit: cover;
+    filter: sepia(0.3) contrast(1.1);
 }
 
 .polaroid-caption {
