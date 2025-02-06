@@ -126,6 +126,88 @@ body {
   }
 }
 
+/* Добавить в styles.css */
+.counter-container {
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(231, 76, 60, 0.2));
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 315px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(231, 76, 60, 0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.counter-title {
+  font-size: 24px;
+  color: #e74c3c;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.counter-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.counter-section {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.counter-section:hover {
+  transform: translateY(-5px);
+}
+
+.counter-number {
+  font-size: 48px;
+  color: #e74c3c;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.counter-label {
+  font-size: 16px;
+  color: #666;
+}
+
+.counter-divider {
+  font-size: 24px;
+  color: #e74c3c;
+  font-family: "Meow Script", cursive;
+}
+
+.counter-total {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #e74c3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.heart-mini {
+  font-size: 14px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);
+  }
+  to {
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  }
+}
+
 .special-font-meow {
   font-family: "Meow Script", cursive;
   font-size: 48px;
@@ -217,6 +299,7 @@ body {
 
 .event img {
   max-width: 100%;
+  min-width: 200px;
 }
 
 .borderrad {
