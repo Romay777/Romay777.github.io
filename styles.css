@@ -78,7 +78,7 @@ body {
   font-family: "Meow Script", cursive;
   font-size: 48px;
   color: #e74c3c;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .sour-gummy-font {
@@ -169,9 +169,10 @@ body {
 }
 .event img {
   max-width: 100%;
-  border-radius: 8px;
 }
 
 .borderrad {
   border-radius: 10px;
+  border: 3px solid;
+  padding: 3px;
 }
