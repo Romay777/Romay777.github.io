@@ -211,7 +211,7 @@ body {
 .special-font-meow {
   font-family: "Meow Script", cursive;
   font-size: 48px;
-  color: #e74c3c;
+  color: #ff6b6b;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -246,7 +246,7 @@ body {
 
 /* Стили для временной линии */
 .timeline {
-  border-left: 3px solid #e74c3c;
+  border-left: 3px solid #ff6b6b;
   padding-left: 20px;
   position: relative;
 }
@@ -258,7 +258,7 @@ body {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: #e74c3c;
+  background: #ff6b6b;
 }
 
 .event {
@@ -282,7 +282,7 @@ body {
   top: 1px;
   width: 30px;
   height: 30px;
-  background-color: #e74c3c;
+  background-color: #ff6b6b;
   scale: 0.9;
   clip-path: path(
           "M15,1.5 C13.2,1.5 11.5,2.3 10,4.5 C8.5,2.3 6.8,1.5 5,1.5 C2.2,1.5 0,3.7 0,6.5 C0,11 10,18.5 10,18.5 C10,18.5 20,11 20,6.5 C20,3.7 17.8,1.5 15,1.5 Z"
