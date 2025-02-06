@@ -88,7 +88,7 @@
         return `
           <div class="polaroid">
             <img src="${imgUrl}" alt="${caption}" />
-            <p class="polaroid-caption montserrat-alternates-medium">${caption}</p>
+            <p class="polaroid-caption montserrat-alternates-semibold">${caption}</p>
           </div>
         `;
       }
@@ -103,9 +103,8 @@
 
         eventEl.innerHTML = `
           <div class="date montserrat-alternates-bold">${date}</div>
-          <div class="title montserrat-alternates-bold">${title}</div>
-          <div class="description montserrat-alternates-medium">${description}</div>
           ${polaroidHtml}
+          <div class="description montserrat-alternates-medium">${description}</div>
         `;
 
         timeline.appendChild(eventEl);
