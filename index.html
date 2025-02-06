@@ -155,5 +155,46 @@
       );
 
     </script>
+    <script>
+      // Массив фраз о любви
+      const lovePhrases = [
+        "Ты - мое самое большое счастье ❤️",
+        "Люблю тебя больше всего на свете 💖",
+        "Ты делаешь мой мир прекрасней ✨",
+        "Ты - моя любимая принцесса 👑",
+        "С тобой каждый день особенный 🌟",
+        "Твоя улыбка освещает мой мир ☀️",
+        "Ты - мое самое дорогое сокровище 💝",
+        "Бесконечно счастлив быть с тобой 💑",
+        "Ты - любовь всей моей жизни 💕",
+        "Каждый миг с тобой бесценен ⭐"
+      ];
+
+      // Найдем элемент сердца
+      const heart = document.querySelector('.heart');
+      // Создадим элемент для отображения фразы
+      const phraseElement = document.createElement('div');
+      phraseElement.classList.add('love-phrase');
+      document.querySelector('.heart-container').appendChild(phraseElement);
+
+      // Добавим обработчик клика
+      heart.addEventListener('click', () => {
+        // Выбираем случайную фразу
+        const randomPhrase = lovePhrases[Math.floor(Math.random() * lovePhrases.length)];
+
+        // Обновляем текст
+        phraseElement.textContent = randomPhrase;
+
+        // Добавляем класс для анимации
+        phraseElement.classList.remove('show');
+        void phraseElement.offsetWidth; // Форсируем перерисовку
+        phraseElement.classList.add('show');
+
+        // Удаляем класс через 3 секунды
+        setTimeout(() => {
+          phraseElement.classList.remove('show');
+        }, 3000);
+      });
+    </script>
   </body>
 </html>

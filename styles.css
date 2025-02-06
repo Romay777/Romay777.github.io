@@ -37,36 +37,88 @@ body {
   margin: 0 auto;
   padding: 20px;
 }
+
 /* Стили для сердечного экрана */
-/* .intro {
-    text-align: center;
-    margin-bottom: 40px;
-  } */
 .heart-container {
   position: fixed;
   top: 0;
   left: 49%;
   transform: translateX(-50%);
-  /* background: rgba(255, 255, 255, 0.9); */
   width: 100%;
   text-align: center;
   padding: 10px 0;
   z-index: 1000;
 }
+
 .heart {
   display: inline-block;
   font-size: 80px;
   color: red;
   animation: heartbeat 1s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
+
+.heart:hover {
+  transform: scale(1.1);
+}
+
+.heart:active {
+  transform: scale(0.9);
+}
+
+/* Стили для всплывающей фразы */
+.love-phrase {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: rgba(231, 76, 60, 0.9);
+  padding: 15px 25px;
+  border-radius: 20px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.love-phrase.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: floatUp 3s ease-in-out;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -100%) scale(1);
+    opacity: 0;
+  }
+}
+
 .intro-text {
   margin-top: 110px;
   text-align: center;
 }
 
 @keyframes heartbeat {
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
   50% {
@@ -116,6 +168,7 @@ body {
   padding-left: 20px;
   position: relative;
 }
+
 .timeline:before {
   content: "";
   position: absolute;
@@ -125,20 +178,11 @@ body {
   width: 3px;
   background: #e74c3c;
 }
+
 .event {
   position: relative;
   margin-left: 12px;
   margin-bottom: 35px;
-}
-.event::before {
-  content: "";
-  position: absolute;
-  left: -26px;
-  top: 2px;
-  width: 30px;
-  height: 30px;
-  background-color: #e74c3c;
-  scale: 0.9;
 }
 
 .event::before {
@@ -151,22 +195,26 @@ body {
   background-color: #e74c3c;
   scale: 0.9;
   clip-path: path(
-    "M15,1.5 C13.2,1.5 11.5,2.3 10,4.5 C8.5,2.3 6.8,1.5 5,1.5 C2.2,1.5 0,3.7 0,6.5 C0,11 10,18.5 10,18.5 C10,18.5 20,11 20,6.5 C20,3.7 17.8,1.5 15,1.5 Z"
+          "M15,1.5 C13.2,1.5 11.5,2.3 10,4.5 C8.5,2.3 6.8,1.5 5,1.5 C2.2,1.5 0,3.7 0,6.5 C0,11 10,18.5 10,18.5 C10,18.5 20,11 20,6.5 C20,3.7 17.8,1.5 15,1.5 Z"
   );
 }
+
 .event .date {
   font-weight: bold;
   font-style: italic;
   margin-bottom: 5px;
 }
+
 .event .title {
   font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 5px;
 }
+
 .event .description {
   margin-bottom: 10px;
 }
+
 .event img {
   max-width: 100%;
 }
