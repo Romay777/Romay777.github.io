@@ -57,7 +57,7 @@ body {
 .heart {
     display: inline-block;
     font-size: 80px;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     color: red;
     animation: heartbeat 1.8s ease-in-out infinite;
     cursor: pointer;
@@ -141,6 +141,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(231, 76, 60, 0.3);
     animation: glow 2s ease-in-out infinite alternate;
+    position: relative;
 }
 
 .counter-title {
@@ -198,6 +199,25 @@ body {
     gap: 8px;
 }
 
+.counter-emoji {
+    font-size: 42px;
+    position: absolute;
+}
+
+/* Эмодзи на левой границе чуть ниже верхнего угла */
+.counter-emoji-left {
+    left: -22px;   /* смещение влево (настраивайте по необходимости) */
+    top: 0px;     /* немного ниже верхнего угла */
+    transform: rotate(-75deg); /* поворот влево */
+}
+
+/* Эмодзи на правой границе чуть выше нижнего угла */
+.counter-emoji-right {
+    right: -20px;  /* смещение вправо за пределы контейнера */
+    bottom: 10px;  /* чуть выше нижнего угла */
+    transform: rotate(0deg);  /* поворот вправо */
+}
+
 .heart-mini {
     font-size: 14px;
     animation: heartbeat 1.2s ease-in-out infinite;
@@ -211,6 +231,7 @@ body {
         box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
     }
 }
+
 
 .special-font-meow {
     font-family: "Meow Script", cursive;
