@@ -57,7 +57,7 @@ body {
 .heart {
     display: inline-block;
     font-size: 80px;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     color: red;
     animation: heartbeat 1.8s ease-in-out infinite;
     cursor: pointer;
@@ -122,6 +122,11 @@ body {
     text-align: center;
 }
 
+.love-graph-upper-text{
+    text-align: center;
+    margin-top: 60px;
+}
+
 @keyframes heartbeat {
     0%, 100% {
         transform: scale(1);
@@ -135,7 +140,7 @@ body {
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(231, 76, 60, 0.2));
     border-radius: 15px;
     padding: 20px;
-    margin: 30px auto;
+    margin: 20px auto;
     max-width: 315px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -229,6 +234,73 @@ body {
     }
     to {
         box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+}
+
+/* Стили для графика любви - адаптивная версия */
+.love-graph-container {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(231, 76, 60, 0.2));
+    border-radius: 15px;
+    padding: 25px 0px;
+    margin: 20px auto;
+    max-width: 350px; /* Уменьшена максимальная ширина */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(231, 76, 60, 0.3);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+.love-graph {
+    width: 100%;
+    height: 270px;
+    overflow: visible;
+}
+.graph-svg {
+    width: 100%;
+    height: 100%;
+}
+.axis {
+    stroke: #e74c3c;
+    stroke-width: 2;
+    fill: none;
+}
+.love-line {
+    stroke: #ff6b6b;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 8s ease-in-out forwards infinite;
+}
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.axis-label {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    fill: #e74c3c;
+}
+.date-label {
+    font-size: 12px; /* Уменьшен размер шрифта для даты */
+}
+.hearts-trail text {
+    font-size: 20px; /* Уменьшен размер сердечек */
+    animation: graph-float 5s ease-in-out infinite;
+    opacity: 0.8;
+}
+.graph-caption {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 12px; /* Уменьшен размер шрифта подписи */
+    margin-top: 13px;
+    font-style: italic;
+}
+@keyframes graph-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-7px);
     }
 }
 
