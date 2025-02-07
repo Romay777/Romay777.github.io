@@ -111,7 +111,7 @@
             </div>
 
             <!-- Индикаторы слайдов -->
-            <div class="carousel-indicators" id="carouselIndicators"></div>
+<!--            <div class="carousel-indicators" id="carouselIndicators"></div>-->
 
             <!-- Кнопки навигации -->
             <button class="carousel-button prev" id="prevButton">❮</button>
@@ -339,12 +339,13 @@
                 'best-photos/wheel_10.jpg',
                 'best-photos/11.png',
                 'best-photos/12.png',
+
                 // Добавьте остальные фото здесь
             ];
         }
 
         const carousel = document.getElementById('photoCarousel');
-        const indicators = document.getElementById('carouselIndicators');
+        // const indicators = document.getElementById('carouselIndicators');
         const prevButton = document.getElementById('prevButton');
         const nextButton = document.getElementById('nextButton');
 
@@ -366,10 +367,10 @@
                 carousel.appendChild(slide);
 
                 // Создаем индикаторы
-                const indicator = document.createElement('div');
-                indicator.className = 'indicator' + (index === 0 ? ' active' : '');
-                indicator.addEventListener('click', () => goToSlide(index));
-                indicators.appendChild(indicator);
+                // const indicator = document.createElement('div');
+                // indicator.className = 'indicator' + (index === 0 ? ' active' : '');
+                // indicator.addEventListener('click', () => goToSlide(index));
+                // indicators.appendChild(indicator);
             });
 
             // Обработчики для свайпов
@@ -380,6 +381,11 @@
             // Обработчики для кнопок
             prevButton.addEventListener('click', () => goToSlide(currentSlide - 1));
             nextButton.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+            // Запускаем автоматическое листание
+            setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 2000); // Каждые 2 секунды
         }
 
         function goToSlide(index) {
@@ -392,9 +398,9 @@
             carousel.style.transform = `translateX(${offset}%)`;
 
             // Обновляем индикаторы
-            document.querySelectorAll('.indicator').forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
+            // document.querySelectorAll('.indicator').forEach((indicator, i) => {
+            //     indicator.classList.toggle('active', i === index);
+            // });
         }
 
         function touchStart(event) {
