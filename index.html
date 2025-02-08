@@ -31,7 +31,7 @@
 </div>
 
 <!-- Блок времени сколько встречаемся -->
-<div class="counter-container">
+<div class="counter-container fade-in-animation">
     <!-- Эмодзи слева (чуть ниже верхнего угла) -->
     <span class="counter-emoji counter-emoji-left">🎉</span>
 
@@ -64,7 +64,7 @@
 </div>
 
 <!-- График любви -->
-<div class="love-graph-container">
+<div class="love-graph-container fade-in-animation">
     <div class="love-graph">
         <svg viewBox="0 0 350 300" class="graph-svg"> <!-- Изменен viewBox -->
             <!-- Ось X -->
@@ -101,7 +101,7 @@
         <!-- События -->
     </div>
 
-    <div class="future-message">
+    <div class="future-message fade-in-animation">
         <div class="future-text montserrat-alternates-medium">
             И это только начало нашей истории...
         </div>
@@ -112,7 +112,7 @@
     </div>
 
     <!--    добавить каруслеь-->
-    <div class="photo-carousel-container">
+    <div class="photo-carousel-container fade-in-animation">
         <h2 class="carousel-title montserrat-alternates-medium">Мы</h2>
 
         <div class="carousel-wrapper">
@@ -384,7 +384,7 @@
     });
 
     // Находим все события и добавляем их в наблюдатель
-    document.querySelectorAll('.event').forEach((event) => {
+    document.querySelectorAll('.event, .fade-in-animation').forEach((event) => {
         observer.observe(event);
     });
 </script>
