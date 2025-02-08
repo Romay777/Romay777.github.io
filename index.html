@@ -78,7 +78,7 @@
                 C280 10 320 20 330 10" /> <!-- Скорректирована кривая линии -->
             <!-- Декоративные элементы -->
             <text x="-9" y="35" class="axis-label" font-size="18">∞</text>
-            <text x="-16" y="150" class="axis-label" font-size="12">999%</text>
+            <text x="-16" y="150" class="axis-label" font-size="12">888%</text>
             <text x="-15" y="279" class="axis-label" font-size="12">100%</text>
             <text x="20" y="295" class="axis-label date-label">16.06.2024</text>
             <text x="155" y="295" class="axis-label date-label">08.08.2033</text>
@@ -397,20 +397,22 @@
             // В реальном проекте здесь должен быть запрос к серверу для получения списка файлов
             // Пока используем массив для демонстрации
             return [
-                'best-photos/wheel_1.jpg',
-                'best-photos/wheel_2.jpg',
-                'best-photos/wheel_3.jpg',
-                'best-photos/wheel_4.jpg',
-                'best-photos/wheel_5.jpg',
-                'best-photos/wheel_6.jpg',
-                'best-photos/wheel_7.jpg',
-                'best-photos/wheel_8.jpg',
-                'best-photos/wheel_9.jpg',
-                'best-photos/wheel_10.jpg',
-                'best-photos/11.png',
-                'best-photos/12.png',
+                'best-photos/1.jpg',
+                'best-photos/2.jpg',
+                'best-photos/3.jpg',
+                'best-photos/4.jpg',
+                'best-photos/5.jpg',
+                'best-photos/6.jpg',
+                'best-photos/7.jpg',
+                'best-photos/8.jpg',
+                'best-photos/9.jpg',
+                'best-photos/10.jpg',
+                'best-photos/11.jpg',
+                'best-photos/12.jpg',
+                'best-photos/13.jpg',
+                'best-photos/14.jpg',
 
-                // Добавьте остальные фото здесь
+                // TODO выбрать адекватные фотографии!!
             ];
         }
 
@@ -455,7 +457,7 @@
             // Запускаем автоматическое листание
             setInterval(() => {
                 goToSlide(currentSlide + 1);
-            }, 2000); // Каждые 2 секунды
+            }, 3000); // Каждые 2 секунды
         }
 
         function goToSlide(index) {
