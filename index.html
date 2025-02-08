@@ -78,8 +78,8 @@
                 C280 10 320 20 330 10" /> <!-- Скорректирована кривая линии -->
             <!-- Декоративные элементы -->
             <text x="-9" y="35" class="axis-label" font-size="18">∞</text>
-<!--            <text x="-16" y="150" class="axis-label" font-size="12">888%</text>-->
-            <text x="-16" y="279" class="axis-label" font-size="12">888%</text>
+            <text x="-16" y="150" class="axis-label" font-size="12">888%</text>
+            <text x="-15" y="279" class="axis-label" font-size="12">100%</text>
             <text x="20" y="295" class="axis-label date-label">16.06.2024</text>
             <text x="155" y="295" class="axis-label date-label">08.08.2033</text>
             <text x="310" y="295" class="axis-label" font-size="18">∞</text>
@@ -303,7 +303,7 @@
     addEvent(
         "27.09.2024",
         "Первая ментальная связь",
-        "Соулмейты, не иначе",
+        "Жена х888!",
         "pics/mindal.png"
     );
     addEvent(
@@ -394,23 +394,31 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Функция для загрузки списка фотографий из директории
         async function loadPhotos() {
-            // В реальном проекте здесь должен быть запрос к серверу для получения списка файлов
-            // Пока используем массив для демонстрации
             return [
                 'best-photos/1.jpg',
+                'best-photos/15.jpg',
                 'best-photos/2.jpg',
-                'best-photos/3.jpg',
-                'best-photos/4.jpg',
+                'best-photos/15.jpg',
                 'best-photos/5.jpg',
+                'best-photos/16.jpg',
                 'best-photos/6.jpg',
+                'best-photos/17.jpg',
                 'best-photos/7.jpg',
+                'best-photos/18.jpg',
                 'best-photos/8.jpg',
+                'best-photos/19.jpg',
                 'best-photos/9.jpg',
+                'best-photos/20.jpg',
                 'best-photos/10.jpg',
+                'best-photos/21.jpg',
                 'best-photos/11.jpg',
+                'best-photos/22.jpg',
                 'best-photos/12.jpg',
+                'best-photos/23.jpg',
                 'best-photos/13.jpg',
+                'best-photos/24.jpg',
                 'best-photos/14.jpg',
+                'best-photos/25.jpg',
             ];
         }
 
@@ -455,7 +463,7 @@
             // Запускаем автоматическое листание
             setInterval(() => {
                 goToSlide(currentSlide + 1);
-            }, 3000); // Каждые 2 секунды
+            }, 2000); // Каждые 2 секунды
         }
 
         function goToSlide(index) {
