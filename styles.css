@@ -57,7 +57,7 @@ body {
 .heart {
     display: inline-block;
     font-size: 80px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
     color: red;
     animation: heartbeat 1.8s ease-in-out infinite;
     cursor: pointer;
@@ -119,6 +119,11 @@ body {
 
 .intro-text {
     margin-top: 110px;
+    text-align: center;
+}
+
+.ending-text {
+    margin-top: 60px;
     text-align: center;
 }
 
@@ -212,7 +217,7 @@ body {
 /* Эмодзи на левой границе чуть ниже верхнего угла */
 .counter-emoji-left {
     left: -22px;   /* смещение влево (настраивайте по необходимости) */
-    top: 0px;     /* немного ниже верхнего угла */
+    top: 0;     /* немного ниже верхнего угла */
     transform: rotate(-75deg); /* поворот влево */
 }
 
@@ -241,7 +246,7 @@ body {
 .love-graph-container {
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(231, 76, 60, 0.2));
     border-radius: 15px;
-    padding: 25px 0px;
+    padding: 25px 0;
     margin: 20px auto;
     max-width: 350px; /* Уменьшена максимальная ширина */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -308,6 +313,13 @@ body {
 .special-font-meow {
     font-family: "Meow Script", cursive;
     font-size: 48px;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.special-font-meow-ending {
+    font-family: "Meow Script", cursive;
+    font-size: 36px;
     color: #ff6b6b;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -641,4 +653,14 @@ body {
     border-radius: 10px;
     border: 3px solid;
     padding: 3px;
+}
+
+.image-centered {
+    display: flex;
+    justify-content: center;
+}
+
+.image-centered-margin {
+    margin-top: 40px;
+    text-align: center;
 }
