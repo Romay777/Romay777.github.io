@@ -664,3 +664,44 @@ body {
     margin-top: 40px;
     text-align: center;
 }
+
+.scroll-prompt {
+    text-align: center;
+    margin: 50px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.scroll-prompt.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.arrow-down {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border: 2px solid #e74c3c;
+    border-width: 0 2px 2px 0;
+    rotate: 45deg;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(-10px) translateY(-10px); }
+}
+
+.quote-block {
+    text-align: center;
+    margin: 80px 20px 0;
+    position: relative;
+}
+
+.timeline-divider {
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b6b 50%, transparent);
+    margin: 55px auto;
+}
