@@ -379,3 +379,58 @@ document.addEventListener('DOMContentLoaded', () => {
     // Запускаем инициализацию
     initCarousel();
 });
+
+// Функция для начала просмотра
+function startExperience() {
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    const musicToggle = document.getElementById('musicToggle');
+    const music = document.getElementById('backgroundMusic');
+
+    // Скрываем welcome screen
+    welcomeScreen.style.display = 'none';
+
+    // Показываем кнопку управления музыкой
+    musicToggle.style.display = 'flex';
+
+    // Запускаем музыку
+    music.volume = 0.3;
+    music.play().then(() => {
+        // Устанавливаем правильное начальное состояние
+        window.isMusicPlaying = true;
+        musicToggle.textContent = '🔊';
+        musicToggle.classList.remove('muted');
+    }).catch(function(error) {
+        console.log("Воспроизведение не удалось:", error);
+        window.isMusicPlaying = false;
+        musicToggle.textContent = '🔈';
+        musicToggle.classList.add('muted');
+    });
+}
+
+// Управление музыкой
+document.addEventListener('DOMContentLoaded', function() {
+    const music = document.getElementById('backgroundMusic');
+    const musicToggle = document.getElementById('musicToggle');
+
+    // Инициализируем глобальное состояние
+    window.isMusicPlaying = false;
+
+    function toggleMusic() {
+        if (window.isMusicPlaying) {
+            music.pause();
+            musicToggle.textContent = '🔈';
+            musicToggle.classList.add('muted');
+            window.isMusicPlaying = false;
+        } else {
+            music.play().then(() => {
+                musicToggle.textContent = '🔊';
+                musicToggle.classList.remove('muted');
+                window.isMusicPlaying = true;
+            }).catch(function(error) {
+                console.log("Воспроизведение не удалось:", error);
+            });
+        }
+    }
+
+    musicToggle.addEventListener('click', toggleMusic);
+});
