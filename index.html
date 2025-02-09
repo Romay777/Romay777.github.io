@@ -29,152 +29,155 @@
     </div>
 </div>
 
-<button id="musicToggle" class="music-toggle" style="display: none;">
-    🔊
-</button>
-<audio id="backgroundMusic" loop>
-    <source src="back.mp3" type="audio/mpeg">
-</audio>
+<div id="mainContent" style="display: none;">
+    <button id="musicToggle" class="music-toggle" style="display: none;">
+        🔊
+    </button>
+    <audio id="backgroundMusic" loop>
+        <source src="back.mp3" type="audio/mpeg">
+    </audio>
 
-<!--Сердечки на фоне-->
-<div class="background-hearts" id="backgroundHearts"></div>
+    <!--Сердечки на фоне-->
+    <div class="background-hearts" id="backgroundHearts"></div>
 
-<!--Летающее сердце-->
-<div class="heart-container">
-    <div class="heart">❤️</div>
-</div>
-
-<!--Блок начала-->
-<div class="intro-text fade-in-animation">
-    <h1 class="sour-gummy-font">wqdsi + romay</h1>
-    <img class="borderrad" src="pics/start.jpg" alt="start"/>
-    <p class="special-font-meow">Since 16.06.2024<br>&<br>Forever</p>
-    <p class="montserrat-alternates-medium">
-        История, которую мы пишем вместе уже
-    </p>
-</div>
-
-<!-- Блок времени сколько встречаемся -->
-<div class="counter-container fade-in-animation">
-    <!-- Эмодзи слева (чуть ниже верхнего угла) -->
-    <span class="counter-emoji counter-emoji-left">🎉</span>
-
-    <!-- Основной контент счётчика -->
-    <div class="counter-box">
-        <div class="counter-section">
-            <div class="counter-number montserrat-alternates-bold">7</div>
-            <div class="counter-label montserrat-alternates-medium">месяцев</div>
-        </div>
-        <div class="counter-divider">и</div>
-        <div class="counter-section">
-            <div class="counter-number montserrat-alternates-bold">29</div>
-            <div class="counter-label montserrat-alternates-medium">дней</div>
-        </div>
-    </div>
-    <div class="counter-total montserrat-alternates-medium">
-        <span class="heart-mini">❤️</span>
-        244 дня
-        <span class="heart-mini">❤️</span>
+    <!--Летающее сердце-->
+    <div class="heart-container">
+        <div class="heart">❤️</div>
     </div>
 
-    <!-- Эмодзи справа (чуть выше нижнего угла) -->
-    <span class="counter-emoji counter-emoji-right">🎉</span>
-</div>
+    <!--Блок начала-->
+    <div class="intro-text fade-in-animation">
+        <h1 class="sour-gummy-font">wqdsi + romay</h1>
+        <img class="borderrad" src="pics/start.jpg" alt="start"/>
+        <p class="special-font-meow">Since 16.06.2024<br>&<br>Forever</p>
+        <p class="montserrat-alternates-medium">
+            История, которую мы пишем вместе уже
+        </p>
+    </div>
 
-<div class="image-centered fade-in-animation">
-    <img src="https://media.tenor.com/XWzHqaTbi7cAAAAi/bugcat-kisses.gif" width="270" height="auto" alt="we"/>
-</div>
+    <!-- Блок времени сколько встречаемся -->
+    <div class="counter-container fade-in-animation">
+        <!-- Эмодзи слева (чуть ниже верхнего угла) -->
+        <span class="counter-emoji counter-emoji-left">🎉</span>
 
-<div class="love-graph-upper-text">
-    <p class="montserrat-alternates-medium">
-        Как крепнет наша связь 💞
-    </p>
-</div>
+        <!-- Основной контент счётчика -->
+        <div class="counter-box">
+            <div class="counter-section">
+                <div class="counter-number montserrat-alternates-bold">7</div>
+                <div class="counter-label montserrat-alternates-medium">месяцев</div>
+            </div>
+            <div class="counter-divider">и</div>
+            <div class="counter-section">
+                <div class="counter-number montserrat-alternates-bold">29</div>
+                <div class="counter-label montserrat-alternates-medium">дней</div>
+            </div>
+        </div>
+        <div class="counter-total montserrat-alternates-medium">
+            <span class="heart-mini">❤️</span>
+            244 дня
+            <span class="heart-mini">❤️</span>
+        </div>
 
-<!-- График любви -->
-<div class="love-graph-container fade-in-animation">
-    <div class="love-graph">
-        <svg viewBox="0 0 350 300" class="graph-svg"> <!-- Изменен viewBox -->
-            <!-- Ось X -->
-            <path class="axis" d="M20 280 L330 280" /> <!-- Уменьшена длина оси X -->
-            <!-- Ось Y -->
-            <path class="axis" d="M20 280 L20 20" />
-            <!-- Графическая линия -->
-            <path class="love-line" d="M20 280
+        <!-- Эмодзи справа (чуть выше нижнего угла) -->
+        <span class="counter-emoji counter-emoji-right">🎉</span>
+    </div>
+
+    <div class="image-centered fade-in-animation">
+        <img src="https://media.tenor.com/XWzHqaTbi7cAAAAi/bugcat-kisses.gif" width="270" height="auto" alt="we"/>
+    </div>
+
+    <div class="love-graph-upper-text">
+        <p class="montserrat-alternates-medium">
+            Как крепнет наша связь 💞
+        </p>
+    </div>
+
+    <!-- График любви -->
+    <div class="love-graph-container fade-in-animation">
+        <div class="love-graph">
+            <svg viewBox="0 0 350 300" class="graph-svg"> <!-- Изменен viewBox -->
+                <!-- Ось X -->
+                <path class="axis" d="M20 280 L330 280"/> <!-- Уменьшена длина оси X -->
+                <!-- Ось Y -->
+                <path class="axis" d="M20 280 L20 20"/>
+                <!-- Графическая линия -->
+                <path class="love-line" d="M20 280
                 C80 250 110 150 170 120
                 S220 50 250 30
-                C280 10 320 20 330 10" /> <!-- Скорректирована кривая линии -->
-            <!-- Декоративные элементы -->
-            <text x="-9" y="35" class="axis-label" font-size="18">∞</text>
-            <text x="-16" y="150" class="axis-label" font-size="12">888%</text>
-            <text x="-15" y="279" class="axis-label" font-size="12">100%</text>
-            <text x="20" y="295" class="axis-label date-label">16.06.2024</text>
-            <text x="155" y="295" class="axis-label date-label">08.08.2033</text>
-            <text x="310" y="295" class="axis-label" font-size="18">∞</text>
+                C280 10 320 20 330 10"/> <!-- Скорректирована кривая линии -->
+                <!-- Декоративные элементы -->
+                <text x="-9" y="35" class="axis-label" font-size="18">∞</text>
+                <text x="-16" y="150" class="axis-label" font-size="12">888%</text>
+                <text x="-15" y="279" class="axis-label" font-size="12">100%</text>
+                <text x="20" y="295" class="axis-label date-label">16.06.2024</text>
+                <text x="155" y="295" class="axis-label date-label">08.08.2033</text>
+                <text x="310" y="295" class="axis-label" font-size="18">∞</text>
 
-            <!-- Анимированные сердечки вдоль линии -->
-            <g class="hearts-trail">
-                <text x="320" y="24">❤️</text>
-            </g>
-        </svg>
-    </div>
-    <p class="graph-caption montserrat-alternates-medium">Наша любовь с каждым днём становится только сильнее!</p>
-</div>
-
-
-<!--Плавный переход к таймлайну-->
-<div class="quote-block fade-in-animation">
-    <div class="timeline-divider"></div>
-    <p class="montserrat-alternates-medium">
-        За этими цифрами скрывается столько теплых моментов...<br>
-        Давай вспомним самые важные из них вместе!
-    </p>
-</div>
-
-<div class="scroll-prompt fade-in-animation">
-    <div class="arrow-down"></div>
-</div>
-
-<div class="container">
-    <!-- Временная линия -->
-    <div class="timeline" id="timeline">
-        <!-- События -->
-    </div>
-
-    <div class="future-message fade-in-animation">
-        <div class="future-text montserrat-alternates-medium fade-in-animation">
-            И это только начало нашей истории...
+                <!-- Анимированные сердечки вдоль линии -->
+                <g class="hearts-trail">
+                    <text x="320" y="24">❤️</text>
+                </g>
+            </svg>
         </div>
-        <div class="future-subtext montserrat-alternates-regular fade-in-animation">
-            Впереди нас ждёт ещё больше незабываемых моментов
-            <span class="floating-heart">❤️</span>
-        </div>
+        <p class="graph-caption montserrat-alternates-medium">Наша любовь с каждым днём становится только сильнее!</p>
     </div>
 
-    <!--    добавить карусель-->
-    <div class="photo-carousel-container fade-in-animation">
-        <h2 class="carousel-title montserrat-alternates-medium">Мы</h2>
 
-        <div class="carousel-wrapper">
-            <div class="carousel" id="photoCarousel">
-                <!-- Фотографии будут добавлены через JavaScript -->
+    <!--Плавный переход к таймлайну-->
+    <div class="quote-block fade-in-animation">
+        <div class="timeline-divider"></div>
+        <p class="montserrat-alternates-medium">
+            За этими цифрами скрывается столько теплых моментов...<br>
+            Давай вспомним самые важные из них вместе!
+        </p>
+    </div>
+
+    <div class="scroll-prompt fade-in-animation">
+        <div class="arrow-down"></div>
+    </div>
+
+    <div class="container">
+        <!-- Временная линия -->
+        <div class="timeline" id="timeline">
+            <!-- События -->
+        </div>
+
+        <div class="future-message fade-in-animation">
+            <div class="future-text montserrat-alternates-medium fade-in-animation">
+                И это только начало нашей истории...
             </div>
-
-            <!-- Индикаторы слайдов -->
-<!--            <div class="carousel-indicators" id="carouselIndicators"></div>-->
-
-            <!-- Кнопки навигации -->
-            <button class="carousel-button prev" id="prevButton">❮</button>
-            <button class="carousel-button next" id="nextButton">❯</button>
+            <div class="future-subtext montserrat-alternates-regular fade-in-animation">
+                Впереди нас ждёт ещё больше незабываемых моментов
+                <span class="floating-heart">❤️</span>
+            </div>
         </div>
-    </div>
+
+        <!--    добавить карусель-->
+        <div class="photo-carousel-container fade-in-animation">
+            <h2 class="carousel-title montserrat-alternates-medium">Мы</h2>
+
+            <div class="carousel-wrapper">
+                <div class="carousel" id="photoCarousel">
+                    <!-- Фотографии будут добавлены через JavaScript -->
+                </div>
+
+                <!-- Индикаторы слайдов -->
+                <!--            <div class="carousel-indicators" id="carouselIndicators"></div>-->
+
+                <!-- Кнопки навигации -->
+                <button class="carousel-button prev" id="prevButton">❮</button>
+                <button class="carousel-button next" id="nextButton">❯</button>
+            </div>
+        </div>
 
 
-    <div class="ending-text">
-        <p class="special-font-meow-ending montserrat-alternates-medium">Я верю, что у нас все получится!
-    </div>
-    <div class="image-centered-margin fade-in-animation">
-        <img src="https://media1.tenor.com/m/JdXhEDGCSc8AAAAC/capoo-bugcat.gif" width="270" height="auto" alt="start"/>
+        <div class="ending-text">
+            <p class="special-font-meow-ending montserrat-alternates-medium">Я верю, что у нас все получится!
+        </div>
+        <div class="image-centered-margin fade-in-animation">
+            <img src="https://media1.tenor.com/m/JdXhEDGCSc8AAAAC/capoo-bugcat.gif" width="270" height="auto"
+                 alt="start"/>
+        </div>
     </div>
 </div>
 

@@ -385,17 +385,24 @@ function startExperience() {
     const welcomeScreen = document.getElementById('welcomeScreen');
     const musicToggle = document.getElementById('musicToggle');
     const music = document.getElementById('backgroundMusic');
+    const mainContent = document.getElementById('mainContent');
 
-    // Скрываем welcome screen
+    // Hide welcome screen
     welcomeScreen.style.display = 'none';
 
-    // Показываем кнопку управления музыкой
+    // Show and fade in main content
+    mainContent.style.display = 'block';
+    // Small delay to ensure display: block has taken effect
+    setTimeout(() => {
+        mainContent.classList.add('visible');
+    }, 50);
+
+    // Show music toggle
     musicToggle.style.display = 'flex';
 
-    // Запускаем музыку
+    // Start music
     music.volume = 0.3;
     music.play().then(() => {
-        // Устанавливаем правильное начальное состояние
         window.isMusicPlaying = true;
         musicToggle.textContent = '🔊';
         musicToggle.classList.remove('muted');

@@ -8,6 +8,15 @@ body {
     line-height: 1.6;
 }
 
+#mainContent {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#mainContent.visible {
+    opacity: 1;
+}
+
 /* Фоновые сердечки */
 .background-hearts {
     position: fixed;
