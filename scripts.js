@@ -441,3 +441,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
     musicToggle.addEventListener('click', toggleMusic);
 });
+
+// Добавить в начало scripts.js
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.querySelector('.progress-bar');
+    const textItems = document.querySelectorAll('.text-item');
+    const texts = [
+        "Инициализируем сердечки...",
+        "Любуюсь твоими фотографиями 💖",
+        "Готовлю кое-что интересное ✨",
+        "Настраиваю атмосферу любви 🎶",
+        "Загружаю наши воспоминания 📸"
+    ];
+
+    let currentText = 0;
+    const totalSteps = 100;
+    let currentStep = 0;
+
+    const updateProgress = () => {
+        if (currentStep >= totalSteps) {
+            // Ждём 1 секунду перед началом исчезновения preloader
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                // После плавного исчезновения (0.5 сек) удаляем элемент
+                setTimeout(() => {
+                    preloader.remove();
+                }, 500);
+            }, 700);
+            return;
+        }
+
+        progressBar.style.width = currentStep + '%';
+        currentStep++;
+
+        // Смена текста каждые 20%
+        if(currentStep % (totalSteps/(texts.length)) === 0) {
+            textItems.forEach(item => item.classList.remove('active'));
+            textItems[currentText].classList.add('active');
+            currentText = (currentText + 1) % texts.length;
+        }
+
+        setTimeout(updateProgress, 45);
+    };
+
+    // Задержка перед началом анимации
+    setTimeout(updateProgress, 500);
+});
