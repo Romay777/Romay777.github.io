@@ -1040,3 +1040,13 @@ body {
     80% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-10px); }
 }
+
+.footer-note {
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    padding: 20px 0;
+    margin-top: 40px;
+    opacity: 0.7;
+    border-top: 1px solid #eee;
+}
