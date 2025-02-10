@@ -387,20 +387,22 @@ function startExperience() {
     const music = document.getElementById('backgroundMusic');
     const mainContent = document.getElementById('mainContent');
 
-    // Hide welcome screen
-    welcomeScreen.style.display = 'none';
+    // Запускаем анимацию исчезновения
+    welcomeScreen.classList.add('hide');
 
-    // Show and fade in main content
-    mainContent.style.display = 'block';
-    // Small delay to ensure display: block has taken effect
+    // После завершения анимации полностью скрываем элемент
+    welcomeScreen.addEventListener('transitionend', () => {
+        welcomeScreen.style.display = 'none';
+    });
+
+    // Показываем основной контент с небольшой задержкой
     setTimeout(() => {
+        mainContent.style.display = 'block';
         mainContent.classList.add('visible');
-    }, 50);
+    }, 300); // Задержка должна совпадать с длительностью анимации
 
-    // Show music toggle
+    // Остальной код оставляем без изменений...
     musicToggle.style.display = 'flex';
-
-    // Start music
     music.volume = 0.3;
     music.play().then(() => {
         window.isMusicPlaying = true;
@@ -442,13 +444,13 @@ document.addEventListener('DOMContentLoaded', function() {
     musicToggle.addEventListener('click', toggleMusic);
 });
 
-// Добавить в начало scripts.js
+// Загрузка прелоадера
 document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     const progressBar = document.querySelector('.progress-bar');
     const textItems = document.querySelectorAll('.text-item');
     const texts = [
-        "Инициализируем сердечки...",
+        "Инициализирую сердечки...",
         "Любуюсь твоими фотографиями 💖",
         "Готовлю кое-что интересное ✨",
         "Настраиваю атмосферу любви 🎶",

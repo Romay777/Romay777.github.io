@@ -732,6 +732,12 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Montserrat Alternates", serif;
+    transition: opacity 0.8s ease-out;
+}
+
+.welcome-screen.hide {
+    opacity: 0;
+    pointer-events: none; /* Блокируем клики во время анимации */
 }
 
 .welcome-content {
