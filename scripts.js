@@ -502,3 +502,125 @@ document.addEventListener('DOMContentLoaded', function() {
     // Задержка перед началом анимации
     setTimeout(updateProgress, 500);
 });
+
+// Конфетти с эффектом разлета
+function addConfetti(event) {
+    const colors = [
+        "#ff6b6b", "#e74c3c", "#ff9ff3", "#f368e0",
+        "#ffd700", "#ff69b4", "#87ceeb", "#98fb98"
+    ];
+    const shapes = ['❤️', '✨', '💖', '✨'];
+
+    // Создаем контейнер для конфетти если его еще нет
+    let confettiContainer = document.querySelector('.confetti-container');
+    if (!confettiContainer) {
+        confettiContainer = document.createElement('div');
+        confettiContainer.className = 'confetti-container';
+        confettiContainer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999999;
+        `;
+        document.body.appendChild(confettiContainer);
+    }
+
+    // Получаем координаты клика или центр элемента
+    const rect = event.target.getBoundingClientRect();
+    const startX = event.clientX || rect.left + rect.width / 2;
+    const startY = event.clientY || rect.top + rect.height / 2;
+
+    // Создаем больше конфетти для более насыщенного эффекта
+    for (let i = 0; i < 75; i++) {
+        const confetti = document.createElement('div');
+        const isEmoji = Math.random() > 0.7; // 30% шанс появления эмодзи
+
+        if (isEmoji) {
+            confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+            confetti.style.fontSize = `${12 + Math.random() * 8}px`;
+        } else {
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        const size = isEmoji ? 20 : 8 + Math.random() * 6;
+        // Случайный угол в радианах
+        const angle = (Math.random() * Math.PI * 2);
+        // Случайная скорость
+        const velocity = 15 + Math.random() * 25;
+        // Случайное расстояние
+        const distance = 100 + Math.random() * 200;
+
+        // Вычисляем конечные координаты на основе угла и расстояния
+        const endX = Math.cos(angle) * distance;
+        const endY = Math.sin(angle) * distance;
+
+        // Начальное и конечное вращение
+        const startRotation = Math.random() * 360;
+        const endRotation = startRotation + Math.random() * 720 - 360;
+
+        confetti.style.cssText += `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${startX}px;
+            top: ${startY}px;
+            border-radius: ${isEmoji ? '0' : '2px'};
+            transform: rotate(${startRotation}deg);
+            opacity: 1;
+        `;
+
+        // Создаем уникальную анимацию для каждого конфетти
+        const animationName = `confetti-${Date.now()}-${i}`;
+        const keyframes = `
+            @keyframes ${animationName} {
+                0% {
+                    transform: translate(0, 0) rotate(${startRotation}deg);
+                    opacity: 1;
+                }
+                85% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(${endX}px, ${endY}px) rotate(${endRotation}deg);
+                    opacity: 0;
+                }
+            }
+        `;
+
+        const style = document.createElement('style');
+        style.textContent = keyframes;
+        document.head.appendChild(style);
+
+        confetti.style.animation = `${animationName} ${1 + Math.random() * 2}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
+
+        confettiContainer.appendChild(confetti);
+
+        // Удаляем конфетти и стили после анимации
+        setTimeout(() => {
+            confetti.remove();
+            style.remove();
+        }, 3000);
+    }
+}
+
+heart.addEventListener('click', (event) => {
+    event.preventDefault();
+    addConfetti(event);
+});
+
+// Добавляем немного конфетти при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    const heartElement = document.querySelector('.heart');
+    if (heartElement) {
+        const rect = heartElement.getBoundingClientRect();
+        const fakeEvent = {
+            clientX: rect.left + rect.width / 2,
+            clientY: rect.top + rect.height / 2,
+            target: heartElement
+        };
+        setTimeout(() => addConfetti(fakeEvent), 1000);
+    }
+});
