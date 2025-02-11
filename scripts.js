@@ -1,7 +1,14 @@
 // Telegram unit
-const tg = window.Telegram.WebApp;
-
-tg.expand();
+if (window.Telegram && window.Telegram.WebApp) {
+    const tg = window.Telegram.WebApp;
+    try {
+        tg.expand();
+    } catch (error) {
+        console.error("Ошибка при вызове tg.expand():", error);
+    }
+} else {
+    console.warn("Telegram WebApp API не доступен.");
+}
 
 // Генерация фоновых сердечек
 function createHearts() {
