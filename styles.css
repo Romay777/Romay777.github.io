@@ -149,7 +149,7 @@ body {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 }
 
@@ -810,7 +810,7 @@ body {
 /* Стили для кнопки управления музыкой */
 .music-toggle {
     position: fixed;
-    top: 20px;
+    top: 80px;
     right: 20px;
     z-index: 1001;
     background: white;
@@ -826,6 +826,8 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     animation: glow 2s ease-in-out infinite alternate;
+    -webkit-tap-highlight-color: transparent;
+    outline: none !important;
 }
 
 .music-toggle:hover {
