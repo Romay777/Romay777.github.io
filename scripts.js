@@ -1,3 +1,8 @@
+// Telegram unit
+const tg = window.Telegram.WebApp;
+tg.ready(); // Сообщаем Telegram
+tg.expand();
+
 // Генерация фоновых сердечек
 function createHearts() {
     const container = document.getElementById('backgroundHearts');
