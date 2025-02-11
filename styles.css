@@ -76,6 +76,21 @@ body {
     outline: none !important;
 }
 
+/* Новый класс для состояния блокировки */
+.heart.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.heart:not(.disabled):hover {
+    transform: scale(1.1);
+}
+
+.heart:not(.disabled):active {
+    transform: scale(0.9);
+}
+
 .heart:hover {
     transform: scale(1.1);
 }

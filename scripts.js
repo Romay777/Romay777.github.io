@@ -36,7 +36,7 @@ createHearts();
 function createPolaroid(imgUrl, caption) {
     return `
           <div class="polaroid">
-            <img src="${imgUrl}" alt="${caption}" />
+            <img src="${imgUrl}" alt="${caption}" loading="lazy" />
             <p class="polaroid-caption montserrat-alternates-semibold">${caption}</p>
           </div>
         `;
@@ -227,10 +227,18 @@ const phraseElement = document.createElement('div');
 phraseElement.classList.add('love-phrase');
 document.querySelector('.heart-container').appendChild(phraseElement);
 
-// Добавим обработчик клика
+// Переменная для отслеживания состояния блокировки
+let isLocked = false;
+
+// Обновленный обработчик клика
 heart.addEventListener('click', () => {
-    // Выбираем случайную фразу
-    // Обновляем текст
+    if (isLocked) return; // Если заблокировано, прерываем выполнение
+
+    // Блокируем сердце
+    isLocked = true;
+    heart.classList.add('disabled');
+
+    // Выбираем случайную фразу и обновляем текст
     phraseElement.textContent = lovePhrases[Math.floor(Math.random() * lovePhrases.length)];
 
     // Добавляем класс для анимации
@@ -238,9 +246,11 @@ heart.addEventListener('click', () => {
     void phraseElement.offsetWidth; // Форсируем перерисовку
     phraseElement.classList.add('show');
 
-    // Удаляем класс через 3 секунды
+    // Удаляем класс и разблокируем через 3 секунды
     setTimeout(() => {
         phraseElement.classList.remove('show');
+        heart.classList.remove('disabled');
+        isLocked = false;
     }, 3000);
 });
 
@@ -549,7 +559,7 @@ function addConfetti(event) {
         // Случайный угол в радианах
         const angle = (Math.random() * Math.PI * 2);
         // Случайная скорость
-        const velocity = 15 + Math.random() * 25;
+        // const velocity = 15 + Math.random() * 25;
         // Случайное расстояние
         const distance = 100 + Math.random() * 200;
 
