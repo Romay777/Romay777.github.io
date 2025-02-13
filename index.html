@@ -73,28 +73,37 @@
 
     <!-- Блок времени сколько встречаемся -->
     <div class="counter-container fade-in-animation">
-        <!-- Эмодзи слева (чуть ниже верхнего угла) -->
         <span class="counter-emoji counter-emoji-left">🎉</span>
 
-        <!-- Основной контент счётчика -->
         <div class="counter-box">
             <div class="counter-section">
-                <div class="counter-number montserrat-alternates-bold">7</div>
-                <div class="counter-label montserrat-alternates-medium">месяцев</div>
+                <div class="counter-number montserrat-alternates-bold" id="months">0</div>
+                <div class="counter-label montserrat-alternates-medium" id="months-label">месяцев</div>
             </div>
             <div class="counter-divider">и</div>
             <div class="counter-section">
-                <div class="counter-number montserrat-alternates-bold">29</div>
-                <div class="counter-label montserrat-alternates-medium">дней</div>
+                <div class="counter-number montserrat-alternates-bold" id="days">0</div>
+                <div class="counter-label montserrat-alternates-medium" id="days-label">дней</div>
             </div>
         </div>
+
+        <div class="counter-time">
+            <div class="time-section">
+                <span id="hours">00</span>
+                <span class="time-divider">:</span>
+                <span id="minutes">00</span>
+                <span class="time-divider">:</span>
+                <span id="seconds">00</span>
+            </div>
+        </div>
+
         <div class="counter-total montserrat-alternates-medium">
             <span class="heart-mini">❤️</span>
-            244 дня
+            <span id="total-days">0</span>
+            <span id="total-days-label">дней</span>
             <span class="heart-mini">❤️</span>
         </div>
 
-        <!-- Эмодзи справа (чуть выше нижнего угла) -->
         <span class="counter-emoji counter-emoji-right">🎉</span>
     </div>
 

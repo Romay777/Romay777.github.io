@@ -622,3 +622,75 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => addConfetti(fakeEvent), 1000);
     }
 });
+
+// Счетчик времени отношений
+// Функция для правильных окончаний слов
+function getCorrectWordForm(number, forms) {
+    const cases = [2, 0, 1, 1, 1, 2];
+    return forms[
+        (number % 100 > 4 && number % 100 < 20) ? 2 :
+            cases[(number % 10 < 5) ? number % 10 : 5]
+        ];
+}
+
+function updateCounter() {
+    const startDate = new Date('2024-06-16T00:00:00');
+    const now = new Date();
+    const diff = now - startDate;
+
+    // Расчёт базовых величин
+    const seconds = Math.floor((diff / 1000) % 60);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+
+    // Расчёт месяцев и дней
+    let months = 0;
+    let days = 0;
+
+    const yearDiff = now.getFullYear() - startDate.getFullYear();
+    let monthDiff = now.getMonth() - startDate.getMonth() + (yearDiff * 12);
+
+    // Создаём дату для проверки дней
+    const checkDate = new Date(startDate);
+    checkDate.setMonth(checkDate.getMonth() + monthDiff);
+
+    // Если текущий день меньше начального, уменьшаем месяцы на 1
+    if (now.getDate() < startDate.getDate()) {
+        monthDiff--;
+        // Определяем последний день предыдущего месяца
+        checkDate.setMonth(checkDate.getMonth() - 1);
+    }
+
+    months = monthDiff;
+
+    // Расчёт оставшихся дней
+    const lastDayOfMonth = new Date(checkDate.getFullYear(), checkDate.getMonth() + 1, 0).getDate();
+    if (now.getDate() >= startDate.getDate()) {
+        days = now.getDate() - startDate.getDate();
+    } else {
+        // Если перешли на следующий месяц
+        const daysInLastMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+        days = daysInLastMonth - startDate.getDate() + now.getDate();
+    }
+
+    // Обновление чисел на странице
+    document.getElementById('months').textContent = months;
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    document.getElementById('total-days').textContent = totalDays;
+
+    // Обновление окончаний
+    document.getElementById('months-label').textContent =
+        getCorrectWordForm(months, ['месяц', 'месяца', 'месяцев']);
+    document.getElementById('days-label').textContent =
+        getCorrectWordForm(days, ['день', 'дня', 'дней']);
+    document.getElementById('total-days-label').textContent =
+        getCorrectWordForm(totalDays, ['день', 'дня', 'дней']);
+}
+
+// Запуск счётчика
+updateCounter();
+setInterval(updateCounter, 1000);
