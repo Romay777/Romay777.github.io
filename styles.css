@@ -1014,7 +1014,8 @@ body {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 30px;
     display: inline-block;
-    animation: pulse 3s infinite;
+    animation: pulse 7s infinite;
+    z-index: 1000;
 }
 
 @keyframes pulse {
@@ -1110,4 +1111,30 @@ body {
     pointer-events: none;
     z-index: 999999;
     overflow: hidden;
+}
+
+.ending-emoji {
+    font-size: 42px;
+    position: absolute;
+}
+
+/* Эмодзи на левой границе чуть ниже верхнего угла */
+.ending-emoji-left-top {
+    left: -5px;   /* смещение влево (настраивайте по необходимости) */
+    bottom: 525px;     /* немного ниже верхнего угла */
+    transform: rotate(-215deg); /* поворот влево */
+
+}
+
+.ending-emoji-left-down {
+    left: -2px;   /* смещение влево (настраивайте по необходимости) */
+    bottom: 2px;     /* немного ниже верхнего угла */
+    transform: rotate(-19deg); /* поворот влево */
+}
+
+/* Эмодзи на правой границе чуть выше нижнего угла */
+.ending-emoji-right {
+    right: -12px;  /* смещение вправо за пределы контейнера */
+    bottom: 170px;  /* чуть выше нижнего угла */
+    transform: rotate(15deg);  /* поворот вправо */
 }
