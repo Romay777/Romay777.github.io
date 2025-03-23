@@ -32,183 +32,263 @@ function createHearts() {
 createHearts();
 
 
-// Эффект полароида
-function createPolaroid(imgUrl, caption) {
+// // Эффект полароида
+// function createPolaroid(imgUrl, caption) {
+//     return `
+//           <div class="polaroid">
+//             <img src="${imgUrl}" alt="${caption}" loading="lazy" />
+//             <p class="polaroid-caption montserrat-alternates-semibold">${caption}</p>
+//           </div>
+//         `;
+// }
+
+// Создание карусели для полароида
+function createPolaroid(images, title) {
+    const carouselId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
+
     return `
-          <div class="polaroid">
-            <img src="${imgUrl}" alt="${caption}" loading="lazy" />
-            <p class="polaroid-caption montserrat-alternates-semibold">${caption}</p>
-          </div>
-        `;
+        <div class="polaroid">
+            <div class="carousel-wrapper event-carousel">
+                <div class="carousel" id="${carouselId}">
+                    ${images.map(img => `
+                        <div class="carousel-slide">
+                            <img src="${img}" alt="${title}" loading="lazy"/>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                ${images.length > 1 ? `
+                    <button class="carousel-button prev">❮</button>
+                    <button class="carousel-button next">❯</button>
+                ` : ''}
+            </div>
+            <div class="polaroid-caption montserrat-alternates-medium">${title}</div>
+        </div>
+    `;
 }
 
-// Создание событий
-function addEvent(date, title, description, imgUrl) {
+// Инициализация карусели для события
+function initEventCarousel(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const prevBtn = carousel.parentElement.querySelector('.prev');
+    const nextBtn = carousel.parentElement.querySelector('.next');
+    let currentSlide = 0;
+
+    function updateCarousel() {
+        const slideWidth = slides[0].offsetWidth;
+        carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    }
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentSlide = Math.max(currentSlide - 1, 0);
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = Math.min(currentSlide + 1, slides.length - 1);
+            updateCarousel();
+        });
+    }
+}
+
+// Модифицированная функция добавления событий
+function addEvent(date, title, description, images) {
     const timeline = document.getElementById("timeline");
     const eventEl = document.createElement("div");
     eventEl.classList.add("event");
 
-    // Создаем полароид с изображением
-    const polaroidHtml = createPolaroid(imgUrl, title);
+    const polaroidHtml = createPolaroid(images, title);
 
     eventEl.innerHTML = `
-          <div class="date montserrat-alternates-bold">${date}</div>
-          ${polaroidHtml}
-          <div class="description montserrat-alternates-medium">${description}</div>
-        `;
+        <div class="date montserrat-alternates-bold">${date}</div>
+        ${polaroidHtml}
+        <div class="description montserrat-alternates-medium">${description}</div>
+    `;
 
     timeline.appendChild(eventEl);
+
+    // Инициализация карусели после вставки в DOM
+    const carouselId = eventEl.querySelector('.carousel').id;
+    initEventCarousel(carouselId);
 }
 
 addEvent(
     "01.06.2024",
     "Всё началось с...",
     "Самого неожиданного знакомства",
-    "pics/vk.png"
+    ["pics/vk.png"]
 );
 addEvent(
     "01.06.2024",
     "И продолжилось ещё интереснее!",
     "Это было необычно)",
-    "pics/1.png"
+    ["pics/1.png"]
 );
 addEvent(
     "02.06.2024",
     "Научила ставить лапу",
     "И тут началось...",
-    "pics/13.png"
+    ["pics/13.png"]
 );
 addEvent(
     "04.06.2024",
     "Первая встреча",
     "Тогда не обошлось без происшествий, хаха)",
-    "pics/2.png"
+    ["pics/2.png"]
 );
 addEvent(
     "11.06.2024",
     "Ты поделилась своими результатами ЕГЭ",
     "И мы вновь зажгли огонь!",
-    "pics/3.png"
+    ["pics/3.png"]
 );
 addEvent(
     "12.06.2024",
     "Наш любимый ТикТок",
     "Конец режиму сна через 3..2..1...",
-    "pics/4.png"
+    ["pics/4.png"]
 );
 addEvent(
     "12.06.2024",
     "Добавила в свой телеграм канальчик",
     "Любимый пост ✅",
-    "pics/5.png"
+    ["pics/5.png"]
 );
 addEvent(
     "16.06.2024 14:30",
     "Сделали наши балдежные печеньки",
     "И того самого человечка 🍪",
-    "pics/6.png"
+    ["pics/6.png"]
 );
 addEvent(
     "16.06.2024 23:00",
     "Первый поцелуй на той самой скамейке",
     "Самое незабываемое событие того лета",
-    "pics/7.png"
+    ["pics/7.png"]
 );
 addEvent(
     "20.06.2024",
     "Первое «люблю»",
     "И далеко не последнее)",
-    "pics/8.png"
+    ["pics/8.png"]
 );
 addEvent(
     "20.06.2024",
     "Полина в шоке",
     "Она очень догадливая",
-    "pics/9.png"
+    ["pics/9.png"]
 );
 addEvent(
     "22.06.2024",
     "Наш первый тестик",
     "Хахаха, почему такая тема...",
-    "pics/11.png"
+    ["pics/11.png"]
 );
 addEvent(
     "23.06.2024",
     "Первый закреп",
     "Без комментариев))",
-    "pics/12.png"
+    ["pics/12.png"]
 );
 addEvent(
     "11.08.2024",
     "Первые цветы",
     "Любимые кустовые розы",
-    "pics/flow.png"
+    ["pics/flow.png"]
 );
 addEvent(
     "17.08.2024",
     "Первая совместная фотография",
     "Тот самый турнир 🏀",
-    "pics/sovm.jpg"
+    ["pics/sovm.jpg"]
 );
 addEvent(
     "31.08.2024",
     "Наш бабл-ти",
     "Лучше не вспоминать..",
-    "pics/babl.jpg"
+    ["pics/babl.jpg"]
 );
 addEvent(
     "31.08.2024",
     "Создали виджет любви",
     "Который работает по сей день",
-    "pics/widget.png"
+    ["pics/widget.png"]
 );
 addEvent(
     "27.09.2024",
     "Первая ментальная связь",
     "Жена х888!",
-    "pics/mindal.png"
+    ["pics/mindal.png"]
 );
 addEvent(
     "18.10.2024",
     "Первая ночёвка!",
     "И кое-что ещё)..",
-    "pics/sleepy.jpg"
+    ["pics/sleepy.jpg"]
 );
 addEvent(
     "18.10.2024",
     "Первый совместный ТикТок",
     "Потом нас уже не остановить..",
-    "pics/firsttt.png"
+    ["pics/firsttt.png"]
 );
 addEvent(
     "01.01.2025 🎄",
     "Наш первый Новый Год",
     "Вместе закончили, вместе и проведем!",
-    "pics/newyear.jpg"
+    ["pics/newyear.jpg"]
+);
+addEvent(
+    "11.01.2025",
+    "Увидали на Елки 11",
+    "пепец хихи хаха",
+    ["pics/elki (1).jpg", "pics/elki (2).jpg", "pics/elki (3).jpg"],
 );
 addEvent(
     "27.01.2025",
     "Наша фотосессия",
     "The most damn good",
-    "pics/start.jpg"
+    ["pics/start.jpg"]
 );
 addEvent(
     "15.02.2025",
     "День влюбленных 💞",
     "Любовь льет через край, хехе :)",
-    "pics/hv25.jpg"
+    ["pics/hv25.jpg"]
 );
 addEvent(
     "23.02.2025",
     "Ночь кино",
     "5 часов!!!",
-    "pics/kino_night.jpg"
+    ["pics/kino_night.jpg"]
 );
 addEvent(
     "28.02.2025",
     "Мне 18",
     "Ты устроила великолепную ночь 💘",
-    "pics/hb18.jpg"
+    ["pics/hb18.jpg"]
+);
+addEvent(
+    "14.03.2025",
+    "МК в автошколе 🚓",
+    "Вредные и не очень инструкторы в комплекте",
+    ["pics/ash.jpg", "pics/ash_2.jpg"]
+);
+addEvent(
+    "15.03.2025",
+    "Наш первый театр",
+    "Супер интересный перфоманс!",
+    ["pics/theater_1.jpg", "pics/theater_2.jpg", "pics/theater_3.jpg", "pics/theater_4.jpg"]
+);
+addEvent(
+    "21.03.2025",
+    "Посетили уютную дачу",
+    "Увидели страшни пожар 🫨",
+    ["pics/dacha (1).jpg", "pics/dacha (2).jpg", "pics/dacha (3).jpg", "pics/dacha (4).jpg", "pics/dacha (5).jpg"]
 );
 
 
